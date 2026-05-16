@@ -294,7 +294,7 @@ html, body, [data-testid="stAppViewContainer"],
     display: flex !important;
     flex-direction: column !important;
 }
-.footer-push { flex: 1; }
+.footer-push { display : none; }
 
 .footer {
     text-align: center;
