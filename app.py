@@ -1,7 +1,7 @@
-import keras
+import streamlit as st
+import tensorflow as tf
 import numpy as np
 import pathlib
-from PIL import Image
 
 # ── Class Labels ──────────────────────────────────────────────────────────────
 CLASS_NAME = [
@@ -24,16 +24,16 @@ CLASS_NAME = [
 # ── Helpers ───────────────────────────────────────────────────────────────────
 @st.cache_resource(show_spinner=False)
 def load_model():
-    return keras.models.load_model("training_model.keras")
+    return tf.keras.models.load_model("training_model.keras")
 
 def model_prediction(test_image):
-    model = load_model()
-    image = Image.open(test_image).resize((128, 128)).convert("RGB")
-    input_arr = np.array(image, dtype=np.float32)
-    input_arr = np.expand_dims(input_arr, axis=0)
+    model = load_plant_model()
+    image = tf.keras.preprocessing.image.load_img(test_image, target_size=(128, 128))
+    input_arr = tf.keras.preprocessing.image.img_to_array(image)
+    input_arr = np.array([input_arr])
     predictions = model.predict(input_arr)
     idx = int(np.argmax(predictions))
-    confidence = float(predictions[0][idx]) * 100
+    confidence = float(predictions[0][idx]) * 100   # ← confidence in %
     return idx, confidence
 
 def parse_label(raw):
