@@ -24,7 +24,8 @@ CLASS_NAME = [
 # ── Helpers ───────────────────────────────────────────────────────────────────
 @st.cache_resource(show_spinner=False)
 def load_model():
-    return tf.keras.models.load_model("training_model.keras")
+    model_path = pathlib.Path(__file__).parent / "training_model.keras"
+    return tf.keras.models.load_model(str(model_path))
 
 def model_prediction(test_image):
     model = load_plant_model()
