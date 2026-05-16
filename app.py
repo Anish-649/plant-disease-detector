@@ -179,7 +179,7 @@ with right:
         """, unsafe_allow_html=True)
 
 # ── FOOTER ────────────────────────────────────────────────────────────────────
-st.markdown('<div class="footer-push"></div>', unsafe_allow_html=True)
+
 st.markdown("""
 <div class="footer">
   PlantDisease AI &nbsp;·&nbsp; CNN Model &nbsp;·&nbsp; TensorFlow &nbsp;·&nbsp; 38 Disease Classes &nbsp;·&nbsp; 14 Crop Species
