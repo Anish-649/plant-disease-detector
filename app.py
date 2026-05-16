@@ -64,7 +64,29 @@ section[data-testid='stMain'] .block-container,
     padding-left: 10rem !important;
     padding-right: 10rem !important;
     padding-top: 4rem !important;
+    padding-bottom: 0 !important;
     max-width: 100% !important;
+}
+
+/* Remove extra space Streamlit adds after columns */
+[data-testid="stHorizontalBlock"] {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Remove space after each column element */
+[data-testid="stVerticalBlock"] {
+    gap: 0.5rem !important;
+}
+
+/* Kill bottom padding on main */
+section[data-testid='stMain'] {
+    padding-bottom: 0 !important;
+}
+
+/* Footer sits right below content */
+.footer {
+   
 }
 </style>""", unsafe_allow_html=True)
 

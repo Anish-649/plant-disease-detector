@@ -298,8 +298,8 @@ html, body, [data-testid="stAppViewContainer"],
 
 .footer {
     text-align: center;
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
     padding-top: 1.5rem;
     border-top: 1px solid #111a0a;
     font-family: 'Syne Mono', monospace;
