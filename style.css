@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Syne+Mono&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, [data-testid="stAppViewContainer"] {
+    background: #0b0f07 !important;
+    color: #f0ede6 !important;
+    font-family: 'Syne', sans-serif !important;
+}
+
+[data-testid="stAppViewContainer"]::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 70% 50% at 10% 0%, #1c400a22 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 90% 100%, #0d2b0818 0%, transparent 55%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+[data-testid="block-container"] {
+    max-width: 1100px !important;
+    padding: 0 2.5rem 4rem !important;
+    position: relative;
+    z-index: 1;
+}
+
+/* Hide Streamlit chrome */
+[data-testid="stHeader"], [data-testid="stToolbar"],
+[data-testid="stSidebar"], #MainMenu, footer,
+.stDeployButton, div[data-testid="stDecoration"] { display: none !important; }
+
+/* ── HEADER ───────────────────────────────────────────── */
+.header {
+    /* padding: 3.5rem 0 2.8rem; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid #1a2a0e;
+    margin-bottom: 2rem;
+  padding-bottom: 1.3rem;
+}
+.header-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #172b0c;
+    border: 1px solid #3a6820;
+    border-radius: 99px;
+    padding: 5px 14px;
+    font-family: 'Syne Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #7dba45;
+    margin-bottom: 1.2rem;
+}
+.header-pill::before { content: '●'; font-size: 0.45rem; color: #5fa830; }
+.header-h1 {
+    text-align: center;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: 0.5rem;
+    color: #f0ede6;
+    margin-bottom: 0.9rem;
+}
+.header-h1 span { color: #7dba45; }
+.header-sub {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #7d9d59;
+    line-height: 1.6;
+    max-width: 560px;
+}
+
+/* ── TWO-COLUMN LAYOUT ───────────────────────────────── */
+/* Streamlit columns gap */
+[data-testid="stHorizontalBlock"] {
+    gap: 2rem !important;
+    align-items: flex-start !important;
+}
+
+/* ── LEFT PANEL ──────────────────────────────────────── */
+.panel-label {
+    font-family: 'Syne Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 0.7rem;
+}
+
+/* Upload zone */
+[data-testid="stFileUploader"] {
+    background: #111807 !important;
+    border: 1.5px dashed #2e5018 !important;
+    border-radius: 16px !important;
+    transition: border-color 0.25s, background 0.25s !important;
+}
+[data-testid="stFileUploader"]:hover {
+    border-color: #5fa830 !important;
+    background: #141d09 !important;
+}
+[data-testid="stFileUploaderDropzoneInstructions"] {
+    padding: 2rem 1rem !important;
+}
+[data-testid="stFileUploaderDropzoneInstructions"] div span {
+    font-family: 'Syne Mono', monospace !important;
+    font-size: 0.75rem !important;
+    color: #4a7030 !important;
+    letter-spacing: 0.05em !important;
+}
+[data-testid="stFileUploaderDropzoneInstructions"] small {
+    color: #2e3d20 !important;
+    font-family: 'Syne Mono', monospace !important;
+    font-size: 0.65rem !important;
+}
+[data-testid="stFileUploader"] svg { color: #3a6820 !important; }
+
+/* Image preview */
+.preview-wrap {
+    margin-top: 1.2rem;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #1e3010;
+    background: #0d1309;
+}
+[data-testid="stImage"] img {
+    border-radius: 14px !important;
+    border: 1px solid #1e3010 !important;
+    display: block;
+}
+
+/* Analyse button */
+[data-testid="baseButton-primary"] {
+    width: 100% !important;
+    background: #5fa830 !important;
+    color: #0b0f07 !important;
+    border: none !important;
+    border-radius: 10px !important;
+    font-family: 'Syne', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 0.88rem !important;
+    letter-spacing: 0.08em !important;
+    padding: 0.7rem 1rem !important;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s !important;
+    text-transform: uppercase !important;
+    margin-top: 0.5rem !important;
+}
+[data-testid="baseButton-primary"]:hover {
+    background: #7dba45 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 24px #5fa83044 !important;
+}
+
+/* ── RIGHT PANEL ─────────────────────────────────────── */
+.right-panel {
+    position: sticky;
+    top: 2rem;
+}
+
+/* Empty state */
+.empty-state {
+    text-align: center;
+    padding: 3.5rem 1.5rem;
+    border: 1px dashed #1a2a0e;
+    border-radius: 18px;
+    background: #0d1309;
+    height: 100%;
+}
+.empty-icon { font-size: 2.8rem; margin-bottom: 1rem; opacity: 0.5; }
+.empty-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #2e3d20;
+    margin-bottom: 0.5rem;
+}
+.empty-text {
+    font-family: 'Syne Mono', monospace;
+    font-size: 0.68rem;
+    color: #5b7249;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1.8;
+}
+
+/* Result card */
+.res-card {
+    background: #0f1609;
+    border: 1px solid #1e3010;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 12px 48px #00000044;
+    animation: fadeIn 0.45s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.res-top {
+    background: linear-gradient(135deg, #162b0a 0%, #1e3d10 100%);
+    padding: 1.2rem 1.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1e3010;
+}
+.res-top-label {
+    font-family: 'Syne Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8dc964;
+}
+.res-status-healthy {
+    background: #0d2209;
+    border: 1px solid #3a6820;
+    color: #7dba45;
+    border-radius: 99px;
+    padding: 3px 12px;
+    font-family: 'Syne Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+.res-status-disease {
+    background: #231000;
+    border: 1px solid #7a3a10;
+    color: #e07030;
+    border-radius: 99px;
+    padding: 3px 12px;
+    font-family: 'Syne Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+.res-body { padding: 1.8rem 1.6rem 1.6rem; }
+.res-plant {
+    font-family: 'Syne Mono', monospace;
+    font-size: 0.7rem;
+    color: #5fa830;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+}
+.res-disease {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #f0ede6;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.4rem;
+}
+.res-divider {
+    height: 1px;
+    background: linear-gradient(90deg, #1e3010, transparent);
+    margin-bottom: 1.4rem;
+}
+.res-meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+}
+.res-meta-box {
+    background: #0b0f07;
+    border: 1px solid #1a2a0e;
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+}
+.res-meta-key {
+    font-family: 'Syne Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #78eb22;
+    margin-bottom: 0.35rem;
+}
+.res-meta-val {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+    line-height: 1.3;
+}
+
+/* ── FOOTER ──────────────────────────────────────────── */
+html, body, [data-testid="stAppViewContainer"],
+[data-testid="stMain"], section[data-testid="stMain"] > div,
+[data-testid="stMainBlockContainer"] {
+    min-height: 100vh !important;
+}
+[data-testid="stMainBlockContainer"] {
+    display: flex !important;
+    flex-direction: column !important;
+}
+.footer-push { flex: 1; }
+
+.footer {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #111a0a;
+    font-family: 'Syne Mono', monospace;
+    font-size: 0.7rem;
+    color: #809b6f;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+/* Spinner */
+.stSpinner > div { border-top-color: #5fa830 !important; }
+</style>
