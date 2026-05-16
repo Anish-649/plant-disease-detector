@@ -23,7 +23,7 @@ CLASS_NAME = [
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 @st.cache_resource(show_spinner=False)
-def load_model():
+def load_plant_model():
     model_path = pathlib.Path(__file__).parent / "training_model.keras"
     return tf.keras.models.load_model(str(model_path))
 
