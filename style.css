@@ -285,15 +285,7 @@ html, body, [data-testid="stAppViewContainer"] {
 }
 
 /* ── FOOTER ──────────────────────────────────────────── */
-html, body, [data-testid="stAppViewContainer"],
-[data-testid="stMain"], section[data-testid="stMain"] > div,
-[data-testid="stMainBlockContainer"] {
-    min-height: 100vh !important;
-}
-[data-testid="stMainBlockContainer"] {
-    display: flex !important;
-    flex-direction: column !important;
-}
+
 .footer-push { display : none; }
 
 .footer {
